@@ -74,8 +74,6 @@ button {
   color: var(--btn-text);
   font-size: 1rem;
 }
-.complete-all-btn {
-}
 
 .clear-btn {
   color: var(--thick);
@@ -94,25 +92,17 @@ button {
 .task-details {
   display: flex;
   align-items: center;
+  font-size: 1.4rem;
+  margin: 0 1rem;
+  max-width: 98%;
 }
+
 .radio {
   width: 1.4rem;
   height: 1.4rem;
   margin-right: 0.8rem;
   border-radius: 50%;
   border: 2px solid var(--thick);
-}
-/* .task-radio-input {
-  min-width: 1.4rem;
-  min-height: 1.4rem;
-  margin-right: 0.8rem;
-} */
-
-.task-data {
-  display: flex;
-  font-size: 1.4rem;
-  margin: 0 1rem;
-  max-width: 98%;
 }
 
 .remove-btn {
@@ -149,6 +139,6 @@ button {
   text-decoration: line-through;
 }
 
-.bg-completed{
+.bg-completed {
   background-color: var(--completed);
 }

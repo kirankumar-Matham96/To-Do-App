@@ -4,24 +4,24 @@ const mainInputEl = document.querySelector(".main-input");
 const taskListContainerEl = document.querySelector(".list-container");
 let taskNumber = 0;
 
-function removeTask() {
-  // remove the relevant task element
+// to remove the relevant task element
+function removeTask(taskId) {
+  document.querySelector(`#${taskId}`).remove();
 }
 
 function addTask(value) {
   taskNumber++;
 
   const taskEl = document.createElement("div");
+  taskEl.setAttribute("id", `div-${taskNumber}`);
 
   taskEl.className = "task";
 
-  taskEl.innerHTML = `<label for="${taskNumber}" class="task-data">
-  <div class="task-details" id="${taskNumber}">
+  taskEl.innerHTML = `<div class="task-details">
   <div class="radio"></div>
   <p>${value}</p>
   </div>
-  </label>
-  <button class="remove-btn" onclick="removeTask()">
+  <button class="remove-btn" onclick="removeTask('div-${taskNumber}')">
   <i class="fa-regular fa-circle-xmark"></i>
   </button>`;
 
