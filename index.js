@@ -241,4 +241,11 @@ completedAllTasksBtn.addEventListener("click", () => {
   }
 });
 
-clearCompletedBtn.addEventListener("click", () => {});
+clearCompletedBtn.addEventListener("click", () => {
+  tasksListArr = tasksListArr.filter((item) => item.isCompleted !== true);
+  if (tab === "All") {
+    renderAllTasks();
+  } else if (tab === "Completed") {
+    renderCompletedTasks();
+  }
+});
