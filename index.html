@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO APP</title>
+    <script
+      src="https://kit.fontawesome.com/a731b1af9c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="bg-container">
+      <h1 class="m-heading">TO DO</h1>
+      <main class="main-container">
+        <!-- header section -->
+        <section class="input-section">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <input type="text" />
+          <i class="fa-solid fa-plus"></i>
+        </section>
+        <div class="complete-clear">
+          <div class="clreat-all">
+            <i class="fa-solid fa-check-double"></i>
+            <p>Complete all tasks</p>
+          </div>
+          <button class="clear-btn">Clear completed</button>
+        </div>
+        <hr />
+
+        <!-- list section -->
+        <section class="list-container">
+          <div class="task">
+            <input type="radio" />
+            <p>Hello task</p>
+            <button class="remove-btn">
+              <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- footer section -->
+        <hr />
+        <div class="details-and-options">
+          <div class="tasks-left">
+            <p><span id="tasks-count">2</span> tasks left</p>
+          </div>
+          <div class="options">
+            <button class="all-btn">All</button>
+            <button class="incomplete-btn">Incomplete</button>
+            <button class="completed-btn">Completed</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
