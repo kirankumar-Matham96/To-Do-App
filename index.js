@@ -33,15 +33,17 @@ completedBtn.addEventListener("click", () => {
   renderCompletedTasks();
 });
 
-const tasksListArr = [];
+let tasksListArr = [];
 
 let taskNumber = 0;
 
 // to remove the relevant task element
 function removeTask(taskId) {
   document.querySelector(`#${taskId}`).remove();
-  taskNumber > 0 && taskNumber--;
-  tasksCountEl.textContent = taskNumber;
+  console.log("before: ", tasksListArr);
+  tasksListArr = tasksListArr.filter((item) => item.id !== taskId);
+  console.log("after: ", tasksListArr);
+  // tasksCountEl.textContent = taskNumber;
 }
 
 function getCompleteTasks() {
@@ -72,7 +74,7 @@ function renderAllTasks() {
   taskListContainerEl.innerHTML = "";
   tasksListArr.forEach((task) => {
     const taskEl = document.createElement("div");
-    taskEl.setAttribute("id", `div-${task.id}`);
+    taskEl.setAttribute("id", `${task.id}`);
 
     if (task.isCompleted) {
       taskEl.classList.add("task", "stroked");
@@ -80,11 +82,12 @@ function renderAllTasks() {
       taskEl.classList.add("task");
     }
 
+    // <button class="remove-btn" onclick="removeTask(${task.id})">
     taskEl.innerHTML = `<div class="task-details">
-      <div class="radio ${task.isCompleted && "bg-completed"}"></div>
-      <p>${task.data}</p>
-      </div>
-      <button class="remove-btn" onclick="removeTask('div-${task.id}')">
+    <div class="radio ${task.isCompleted && "bg-completed"}"></div>
+    <p>${task.data}</p>
+    </div>
+    <button class="remove-btn" onclick="removeTask('${task.id}')">
       <i class="fa-regular fa-circle-xmark"></i>
       </button>`;
 
@@ -202,7 +205,7 @@ function renderIncompleteTasks() {
 function createTask(value) {
   taskNumber++;
   // creating the task object to track
-  const task = { id: taskNumber, data: value, isCompleted: false };
+  const task = { id: `div-${taskNumber}`, data: value, isCompleted: false };
   // pushing the task to the array
   tasksListArr.push(task);
 }
