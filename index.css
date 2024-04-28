@@ -7,6 +7,7 @@
   --dark: #1a1a1a;
   --thick: rgb(56, 56, 56);
   --input-bg: rgb(173, 173, 173);
+  --completed: green;
   --no-color: transparent;
 }
 
@@ -94,12 +95,18 @@ button {
   display: flex;
   align-items: center;
 }
-
-.task-radio-input {
+.radio {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid var(--thick);
+}
+/* .task-radio-input {
   min-width: 1.4rem;
   min-height: 1.4rem;
   margin-right: 0.8rem;
-}
+} */
 
 .task-data {
   display: flex;
@@ -136,4 +143,12 @@ button {
 .active {
   font-weight: 600;
   color: var(--thick);
+}
+
+.stroked {
+  text-decoration: line-through;
+}
+
+.bg-completed{
+  background-color: var(--completed);
 }
