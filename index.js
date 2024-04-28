@@ -11,16 +11,25 @@ let tab = "All";
 
 allBtn.addEventListener("click", () => {
   tab = "All";
+  allBtn.classList.add("active");
+  incompleteBtn.classList.remove("active");
+  completedBtn.classList.remove("active");
   renderAllTasks();
 });
 
 incompleteBtn.addEventListener("click", () => {
   tab = "Incomplete";
+  allBtn.classList.remove("active");
+  incompleteBtn.classList.add("active");
+  completedBtn.classList.remove("active");
   renderIncompleteTasks();
 });
 
 completedBtn.addEventListener("click", () => {
   tab = "Completed";
+  allBtn.classList.remove("active");
+  incompleteBtn.classList.remove("active");
+  completedBtn.classList.add("active");
   renderCompletedTasks();
 });
 
