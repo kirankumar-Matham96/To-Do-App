@@ -6,6 +6,8 @@ const tasksCountEl = document.querySelector("#tasks-count");
 const allBtn = document.querySelector(".all-btn");
 const incompleteBtn = document.querySelector(".incomplete-btn");
 const completedBtn = document.querySelector(".completed-btn");
+const completedAllTasksBtn = document.querySelector(".complete-all-btn");
+const clearCompletedBtn = document.querySelector(".clear-btn");
 
 let tab = "All";
 
@@ -40,10 +42,8 @@ let taskNumber = 0;
 // to remove the relevant task element
 function removeTask(taskId) {
   document.querySelector(`#${taskId}`).remove();
-  console.log("before: ", tasksListArr);
   tasksListArr = tasksListArr.filter((item) => item.id !== taskId);
-  console.log("after: ", tasksListArr);
-  // tasksCountEl.textContent = taskNumber;
+  tasksCountEl.textContent = tasksListArr.length;
 }
 
 function getCompleteTasks() {
@@ -82,7 +82,6 @@ function renderAllTasks() {
       taskEl.classList.add("task");
     }
 
-    // <button class="remove-btn" onclick="removeTask(${task.id})">
     taskEl.innerHTML = `<div class="task-details">
     <div class="radio ${task.isCompleted && "bg-completed"}"></div>
     <p>${task.data}</p>
@@ -109,7 +108,7 @@ function renderAllTasks() {
       }
     });
     taskListContainerEl.appendChild(taskEl);
-    tasksCountEl.textContent = getIncompleteTasks().length;
+    tasksCountEl.textContent = tasksListArr.length;
     mainInputEl.value = "";
   });
 }
@@ -119,7 +118,7 @@ function renderCompletedTasks() {
   taskListContainerEl.innerHTML = "";
   completedTasksArr.forEach((task) => {
     const taskEl = document.createElement("div");
-    taskEl.setAttribute("id", `div-${task.id}`);
+    taskEl.setAttribute("id", `${task.id}`);
 
     if (task.isCompleted) {
       taskEl.classList.add("task", "stroked");
@@ -131,7 +130,7 @@ function renderCompletedTasks() {
       <div class="radio ${task.isCompleted && "bg-completed"}"></div>
       <p>${task.data}</p>
       </div>
-      <button class="remove-btn" onclick="removeTask('div-${task.id}')">
+      <button class="remove-btn" onclick="removeTask('${task.id}')">
       <i class="fa-regular fa-circle-xmark"></i>
       </button>`;
 
@@ -163,7 +162,7 @@ function renderIncompleteTasks() {
   taskListContainerEl.innerHTML = "";
   incompleteTasksArr.forEach((task) => {
     const taskEl = document.createElement("div");
-    taskEl.setAttribute("id", `div-${task.id}`);
+    taskEl.setAttribute("id", `${task.id}`);
 
     if (task.isCompleted) {
       taskEl.classList.add("task", "stroked");
@@ -175,7 +174,7 @@ function renderIncompleteTasks() {
       <div class="radio ${task.isCompleted && "bg-completed"}"></div>
       <p>${task.data}</p>
       </div>
-      <button class="remove-btn" onclick="removeTask('div-${task.id}')">
+      <button class="remove-btn" onclick="removeTask('${task.id}')">
       <i class="fa-regular fa-circle-xmark"></i>
       </button>`;
 
@@ -223,11 +222,23 @@ addBtn.addEventListener("click", () => {
 mainInputEl.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     if (mainInputEl.value.trim() != "") {
-      // debugger;
       createTask(mainInputEl.value);
-      renderAllTasks(); //addTask(event.target.value)
+      renderAllTasks();
     } else {
       alert("Please enter something to create a task!");
     }
   }
 });
+
+completedAllTasksBtn.addEventListener("click", () => {
+  tasksListArr.forEach((item) => {
+    item.isCompleted = true;
+  });
+  if (tab === "All") {
+    renderAllTasks();
+  } else if (tab === "Incomplete") {
+    renderIncompleteTasks();
+  }
+});
+
+clearCompletedBtn.addEventListener("click", () => {});
