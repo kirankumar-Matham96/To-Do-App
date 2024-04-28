@@ -4,40 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO DO APP</title>
+    <!-- font awesome CDN -->
     <script
       src="https://kit.fontawesome.com/a731b1af9c.js"
       crossorigin="anonymous"
     ></script>
+    <!-- google fonts CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- local style sheet -->
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
     <div class="bg-container">
-      <h1 class="m-heading">TO DO</h1>
+      <h1 class="m-heading">TO-DO LIST</h1>
       <main class="main-container">
         <!-- header section -->
         <section class="input-section">
           <i class="fa-solid fa-clipboard-list"></i>
-          <input type="text" />
-          <i class="fa-solid fa-plus"></i>
+          <input type="text" class="main-input" />
+          <button class="add-btn">
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </section>
         <div class="complete-clear">
-          <div class="clreat-all">
+          <button class="complete-all-btn">
             <i class="fa-solid fa-check-double"></i>
-            <p>Complete all tasks</p>
-          </div>
+            Complete all tasks
+          </button>
           <button class="clear-btn">Clear completed</button>
         </div>
         <hr />
 
         <!-- list section -->
         <section class="list-container">
-          <div class="task">
-            <input type="radio" />
-            <p>Hello task</p>
+          <!-- <div class="task">
+            <div class="task-details">
+              <label for="task-radio" class="task-data">
+                <input type="radio" class="task-radio-input" id="task-radio" />
+                <p>
+                  Hello task Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Iure, fugiat voluptates. Quos sequi similique placeat
+                  rem doloremque corrupti velit in possimus a. Incidunt ipsum ab
+                  quia unde consectetur officia maxime?
+                </p>
+              </label>
+            </div>
             <button class="remove-btn">
               <i class="fa-regular fa-circle-xmark"></i>
             </button>
-          </div>
+          </div> -->
         </section>
 
         <!-- footer section -->
@@ -47,13 +67,14 @@
             <p><span id="tasks-count">2</span> tasks left</p>
           </div>
           <div class="options">
-            <button class="all-btn">All</button>
-            <button class="incomplete-btn">Incomplete</button>
-            <button class="completed-btn">Completed</button>
+            <button class="option all-btn active">All</button>
+            <button class="option incomplete-btn">Incomplete</button>
+            <button class="option completed-btn">Completed</button>
           </div>
         </div>
       </main>
     </div>
+    <!-- local js script -->
     <script src="./index.js"></script>
   </body>
 </html>

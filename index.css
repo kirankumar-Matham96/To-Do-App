@@ -1,28 +1,139 @@
+:root {
+  --bg-color: rgb(86, 86, 195);
+  --card-bg-color: #edf2fb;
+  --text-color: #1d1d1d;
+  --text-white: #fefefe;
+  --btn-text: rgb(96, 96, 96);
+  --dark: #1a1a1a;
+  --thick: rgb(56, 56, 56);
+  --input-bg: rgb(173, 173, 173);
+  --no-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .bg-container {
+  min-height: 100vh;
+  padding: 5% 10%;
+  background-color: var(--bg-color);
 }
+
 .m-heading {
+  color: var(--text-white);
+  text-align: center;
+  margin-bottom: 1rem;
 }
+
 .main-container {
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+  border-radius: 2rem;
+  padding: 2rem;
 }
+
 .input-section {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.4rem;
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 2rem;
+  align-items: center;
+  background-color: var(--input-bg);
+  margin-bottom: 0.5rem;
 }
+
+.main-input {
+  color: var(--text-white);
+  background-color: var(--no-color);
+  height: 100%;
+  border: none;
+  outline: none;
+  width: 93%;
+  padding: 1rem;
+}
+
 .complete-clear {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
-.clreat-all {
+button {
+  background-color: var(--no-color);
+  border: none;
+  cursor: pointer;
+  color: var(--btn-text);
+  font-size: 1rem;
 }
+.complete-all-btn {
+}
+
 .clear-btn {
+  color: var(--thick);
 }
+
 .list-container {
+  padding-top: 1rem;
 }
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.task-details {
+  display: flex;
+  align-items: center;
+}
+
+.task-radio-input {
+  min-width: 1.4rem;
+  min-height: 1.4rem;
+  margin-right: 0.8rem;
+}
+
+.task-data {
+  display: flex;
+  font-size: 1.4rem;
+  margin: 0 1rem;
+  max-width: 98%;
+}
+
+.remove-btn {
+  color: var(--dark);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+}
+
 .details-and-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
+
 .tasks-left {
+  color: var(--btn-text);
 }
-.options {
+
+#tasks-count {
+  font-weight: 600;
+  color: var(--thick);
 }
-.all-btn {
+
+.option {
+  margin: 0 0 0 0.2rem;
 }
-.incomplete-btn {
-}
-.completed-btn {
+
+.active {
+  font-weight: 600;
+  color: var(--thick);
 }
