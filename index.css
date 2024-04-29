@@ -89,7 +89,6 @@ button {
   justify-content: space-between;
   margin-bottom: 1rem;
   padding: 10px 0;
-  /* border: 1px solid red; */
   transition: 0.2s ease-out;
   border-radius: 1rem;
 }
