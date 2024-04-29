@@ -10,9 +10,7 @@ const completedAllTasksBtn = document.querySelector(".complete-all-btn");
 const clearCompletedBtn = document.querySelector(".clear-btn");
 
 let tab = "All";
-
 let tasksListArr = [];
-
 let taskNumber = 0;
 
 // to remove the relevant task element
@@ -178,9 +176,9 @@ function renderIncompleteTasks() {
       }
     });
     taskListContainerEl.appendChild(taskEl);
-    tasksCountEl.textContent = incompleteTasksArr.length;
     mainInputEl.value = "";
   });
+  tasksCountEl.textContent = incompleteTasksArr.length;
 }
 
 // to create a new task
@@ -192,10 +190,10 @@ function createTask(value) {
   tasksListArr.push(task);
 }
 
+/* event listeners */
 // event listener to create a new task with button
 addBtn.addEventListener("click", () => {
   if (mainInputEl.value.trim() != "") {
-    // addTask(mainInputEl.value);
     createTask(mainInputEl.value);
     renderAllTasks();
   } else {
