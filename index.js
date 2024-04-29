@@ -11,30 +11,6 @@ const clearCompletedBtn = document.querySelector(".clear-btn");
 
 let tab = "All";
 
-allBtn.addEventListener("click", () => {
-  tab = "All";
-  allBtn.classList.add("active");
-  incompleteBtn.classList.remove("active");
-  completedBtn.classList.remove("active");
-  renderAllTasks();
-});
-
-incompleteBtn.addEventListener("click", () => {
-  tab = "Incomplete";
-  allBtn.classList.remove("active");
-  incompleteBtn.classList.add("active");
-  completedBtn.classList.remove("active");
-  renderIncompleteTasks();
-});
-
-completedBtn.addEventListener("click", () => {
-  tab = "Completed";
-  allBtn.classList.remove("active");
-  incompleteBtn.classList.remove("active");
-  completedBtn.classList.add("active");
-  renderCompletedTasks();
-});
-
 let tasksListArr = [];
 
 let taskNumber = 0;
@@ -46,6 +22,7 @@ function removeTask(taskId) {
   tasksCountEl.textContent = tasksListArr.length;
 }
 
+// to get the completed tasks
 function getCompleteTasks() {
   const completedTasks = tasksListArr.filter((taskItem) => {
     if (taskItem.isCompleted === true) {
@@ -58,6 +35,7 @@ function getCompleteTasks() {
   return completedTasks;
 }
 
+// to get the incomplete tasks
 function getIncompleteTasks() {
   const inCompleteTasks = tasksListArr.filter((taskItem) => {
     if (taskItem.isCompleted !== true) {
@@ -70,6 +48,7 @@ function getIncompleteTasks() {
   return inCompleteTasks;
 }
 
+// to render all the tasks
 function renderAllTasks() {
   taskListContainerEl.innerHTML = "";
   tasksListArr.forEach((task) => {
@@ -108,11 +87,13 @@ function renderAllTasks() {
       }
     });
     taskListContainerEl.appendChild(taskEl);
-    tasksCountEl.textContent = tasksListArr.length;
     mainInputEl.value = "";
   });
+  console.log("in all render: ", tasksListArr);
+  tasksCountEl.textContent = tasksListArr.length;
 }
 
+// to render completed tasks
 function renderCompletedTasks() {
   const completedTasksArr = getCompleteTasks();
   taskListContainerEl.innerHTML = "";
@@ -152,11 +133,12 @@ function renderCompletedTasks() {
       }
     });
     taskListContainerEl.appendChild(taskEl);
-    tasksCountEl.textContent = completedTasksArr.length;
     mainInputEl.value = "";
   });
+  tasksCountEl.textContent = completedTasksArr.length;
 }
 
+// to render incomplete tasks
 function renderIncompleteTasks() {
   const incompleteTasksArr = getIncompleteTasks();
   taskListContainerEl.innerHTML = "";
@@ -201,6 +183,7 @@ function renderIncompleteTasks() {
   });
 }
 
+// to create a new task
 function createTask(value) {
   taskNumber++;
   // creating the task object to track
@@ -209,6 +192,7 @@ function createTask(value) {
   tasksListArr.push(task);
 }
 
+// event listener to create a new task with button
 addBtn.addEventListener("click", () => {
   if (mainInputEl.value.trim() != "") {
     // addTask(mainInputEl.value);
@@ -219,6 +203,7 @@ addBtn.addEventListener("click", () => {
   }
 });
 
+// event listener to create a new task with 'enter' key press
 mainInputEl.addEventListener("keydown", (event) => {
   if (event.key == "Enter") {
     if (mainInputEl.value.trim() != "") {
@@ -230,6 +215,7 @@ mainInputEl.addEventListener("keydown", (event) => {
   }
 });
 
+// event listener to complete all tasks with button
 completedAllTasksBtn.addEventListener("click", () => {
   tasksListArr.forEach((item) => {
     item.isCompleted = true;
@@ -241,6 +227,7 @@ completedAllTasksBtn.addEventListener("click", () => {
   }
 });
 
+// event listener to clear all the completed tasks with button
 clearCompletedBtn.addEventListener("click", () => {
   tasksListArr = tasksListArr.filter((item) => item.isCompleted !== true);
   if (tab === "All") {
@@ -248,4 +235,31 @@ clearCompletedBtn.addEventListener("click", () => {
   } else if (tab === "Completed") {
     renderCompletedTasks();
   }
+});
+
+// event listener to render all the tasks
+allBtn.addEventListener("click", () => {
+  tab = "All";
+  allBtn.classList.add("active");
+  incompleteBtn.classList.remove("active");
+  completedBtn.classList.remove("active");
+  renderAllTasks();
+});
+
+// event listener to render incomplete tasks
+incompleteBtn.addEventListener("click", () => {
+  tab = "Incomplete";
+  allBtn.classList.remove("active");
+  incompleteBtn.classList.add("active");
+  completedBtn.classList.remove("active");
+  renderIncompleteTasks();
+});
+
+// event listener to render completed tasks
+completedBtn.addEventListener("click", () => {
+  tab = "Completed";
+  allBtn.classList.remove("active");
+  incompleteBtn.classList.remove("active");
+  completedBtn.classList.add("active");
+  renderCompletedTasks();
 });
