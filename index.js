@@ -87,7 +87,6 @@ function renderAllTasks() {
     taskListContainerEl.appendChild(taskEl);
     mainInputEl.value = "";
   });
-  console.log("in all render: ", tasksListArr);
   tasksCountEl.textContent = tasksListArr.length;
 }
 
