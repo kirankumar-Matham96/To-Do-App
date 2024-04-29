@@ -89,7 +89,6 @@ function renderAllTasks() {
     taskListContainerEl.appendChild(taskEl);
     mainInputEl.value = "";
   });
-  console.log("in all render: ", tasksListArr);
   tasksCountEl.textContent = tasksListArr.length;
 }
 
@@ -178,9 +177,9 @@ function renderIncompleteTasks() {
       }
     });
     taskListContainerEl.appendChild(taskEl);
-    tasksCountEl.textContent = incompleteTasksArr.length;
     mainInputEl.value = "";
   });
+  tasksCountEl.textContent = incompleteTasksArr.length;
 }
 
 // to create a new task
